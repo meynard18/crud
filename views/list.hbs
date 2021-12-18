@@ -1,0 +1,64 @@
+<html lang='en'>
+   <head>
+      <meta charset='UTF-8' />
+      <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+      <title>Document</title>
+   </head>
+   <body>
+
+      <h2>insert songs</h2>
+      <form action='/auth/insertsong' method='post'>
+
+         <label for='title'>title
+            <input type='text' name='title' />
+         </label>
+         <label for='artist'>artist
+            <input type='text' name='artist' />
+         </label>
+         <label for='category'>category
+            <input type='text' name='category' />
+         </label>
+         {{!-- <label for='pdf'>
+            <input type='file' name='pdf' />
+         </label> --}}
+         <button type='submit'>Add</button>
+      </form>
+
+      {{#if message}}
+         <h4>{{message}}</h4>
+      {{/if}}
+
+      <h2>{{title}}</h2>
+      <table>
+         <tr>
+            <th>Song ID</th>
+            <th>Song Title</th>
+            <th>Artist</th>
+            <th>Category</th>
+            {{!-- <th>Pdf</th> --}}
+
+         </tr>
+
+         {{#each user}}
+            <tr>
+               <td>{{this.id}}</td>
+               <td>{{this.title}}</td>
+               <td>{{this.artist}}</td>
+               <td>{{this.category}}</td>
+               {{!-- <td>{{this.pdf}}</td> --}}
+
+               <td><a href='/auth/updateform/{{this.id}}'>Edit</a></td>
+               <td><a
+                     href='/auth/delete/{{this.id}}'
+                     onclick="return confirm('Are you sure you want to delete this record?')"
+                  >Delete</a></td>
+            </tr>
+         {{/each}}
+
+      </table>
+
+      <h3>{{message2}}</h3>
+      <h3>{{message3}}</h3>
+   </body>
+</html>

@@ -1,0 +1,42 @@
+<html lang='en'>
+   <head>
+      <meta charset='UTF-8' />
+      <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+      <title>Document</title>
+   </head>
+   <body>
+
+      <h2>{{title}}</h2>
+      <form action='/auth/update_product' method='post'>
+
+         <label for='id'>Song Id
+            <input type='text' name='id' id='id' value={{user.id}} readonly/>
+         </label>
+
+         <label for='title'>Title
+            <input type='text' name='title' id='title' value={{user.title}} />
+         </label><br />
+
+         <label for='artist'>Artist
+            <input
+               type='text'
+               name='artist'
+               id='artist'
+               value={{user.artist}}
+            />
+         </label><br />
+
+         <label for='category'>category
+            <input
+               type='text'
+               name='category'
+               id='category'
+               value={{user.category}}
+            />
+         </label><br />
+
+         <button type='submit'>Submit</button>
+      </form>
+   </body>
+</html>
